@@ -9,7 +9,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  public questions: Question[];
+  public questions: Question[] = [];
+  title = 'QuizApp';
 
   ngOnInit(): void {
     this.getAllQuestions();
