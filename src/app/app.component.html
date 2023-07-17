@@ -1,3 +1,47 @@
-<div *ngFor="let question of questions">
-  <div>{{question.question_title}}</div>
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-welcome></app-welcome>
+<div class="panel panel-understanding-check">
+  <form class="multipleChoice">
+    <div class="form-group" *ngFor="let question of questions">
+      <label for="radio">{{ question.questionTitle }}</label>
+      <div class="radio">
+        <label>
+          <input type="radio" data-question-number="1" name="question-1" id="bsr-radios-1"
+            data-alert-type="alert-success"
+            data-comment="<strong>Correct answer</strong><br>Well Done !"
+            value="radio1">
+          {{ question.option1 }}
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" data-question-number="2" name="question-2" id="bsr-radios-2"
+            data-alert-type="alert-danger"
+            data-comment="<strong>Incorrect</strong><br>Hard luck, try again !"
+            value="radio2">
+          {{ question.option2 }}
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" data-question-number="3" name="question-3" id="bsr-radios-3"
+            data-alert-type="alert-danger"
+            data-comment="<strong>Incorrect</strong><br>Hard luck, try again !"
+            value="radio3">
+          {{ question.option3 }}
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" data-question-number="4" name="question-4" id="bsr-radios-4"
+            data-alert-type="alert-danger"
+            data-comment="<strong>Incorrect</strong><br>Hard luck, try again !"
+            value="radio3">
+          {{ question.option4 }}
+        </label>
+      </div>
+    </div>
+  </form>
+  <div class="multiple-choice-alert alert hidden" id="89100179691" role="alert"></div>
 </div>

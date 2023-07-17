@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Question } from "./Questions";
+import { Question } from "./Question";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 
@@ -13,8 +13,8 @@ export class QuestionService {
 
     constructor(private http: HttpClient) { }
     
-    public getAllQuestions(): Observable<any> {
-        return this.http.get<any>(`${this.apiServerUrl}/question/AllQuestions`);
+    public getAllQuestions(): Observable<Question[]> {
+        return this.http.get<Question[]>(`${this.apiServerUrl}/question/AllQuestions`);
     }
 
     public addQuestion(questionAdded: Question): Observable<any> {

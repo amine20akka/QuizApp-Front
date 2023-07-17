@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+button {
+    margin-left: 30px;
+}

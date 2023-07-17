@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { Question } from './Questions';
-import { QuestionService } from './question.service';
+import { Question } from './Question';
 import { HttpErrorResponse } from '@angular/common/http';
+import { QuestionService } from './service/question.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   public questions: Question[] = [];
   title = 'QuizApp';
 
   ngOnInit(): void {
-    this.getAllQuestions();
   }
 
   constructor(private questionService: QuestionService) { }
 
-  public getAllQuestions(): void{
+  getAllQuestions(): void {
     this.questionService.getAllQuestions().subscribe(
       (response: Question[]) => {
         this.questions = response;
+        console.log('Questions:', this.questions);
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        console.error('Error fetching questions:', error);
       }
-    )
+    );
   }
 
 }
