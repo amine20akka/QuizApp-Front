@@ -45,7 +45,7 @@
                         class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i></button>
                 <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x"
                         aria-hidden="true"></i></button>
-                <button class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x"
+                <button [disabled]="currentQuestion===questionList.length" class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x"
                         aria-hidden="true"></i></button>
             </div>
         </ng-container>

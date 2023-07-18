@@ -52,14 +52,14 @@ export class QuestionComponent implements OnInit {
       this.isQuizCompleted = true;
       this.stopCounter();
     }
-    if (option.correct) {
+    if (option==this.questionList[this.currentQuestion].rightAnswer) {
       this.points += 10;
       this.correctAnswer++;
       setTimeout(() => {
         this.currentQuestion++;
         this.resetCounter();
         this.getProgressPercent();
-      }, 1000);
+      }, 300);
 
 
     } else {
@@ -68,7 +68,7 @@ export class QuestionComponent implements OnInit {
         this.inCorrectAnswer++;
         this.resetCounter();
         this.getProgressPercent();
-      }, 1000);
+      }, 300);
 
       this.points -= 10;
     }
