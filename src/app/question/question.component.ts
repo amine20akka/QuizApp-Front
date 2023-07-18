@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs/internal/observable/interval';
 import { QuestionService } from '../service/question.service';
-import { QuestionBack } from '../QuestionBack';
 import { QuestionFront } from '../QuestionFront';
 
 @Component({
