@@ -7,6 +7,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { QuestionComponent } from './question/question.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ChangeBgDirective } from './change-bg.directive';
+import { QuestionService } from './service/question.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomeComponent,
     QuestionComponent,
     HeaderComponent,
+    ChangeBgDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

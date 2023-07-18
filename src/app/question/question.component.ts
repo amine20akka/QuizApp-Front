@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs/internal/observable/interval';
 import { QuestionService } from '../service/question.service';
-import { Question } from '../Question';
+import { QuestionBack } from '../QuestionBack';
+import { QuestionFront } from '../QuestionFront';
 
 @Component({
   selector: 'app-question',
@@ -12,7 +13,7 @@ import { Question } from '../Question';
 export class QuestionComponent implements OnInit {
 
   public name: string = "";
-  public questionList: Question[] = [];
+  public questionList: QuestionFront[] = [];
   public currentQuestion: number = 0;
   public points: number = 0;
   counter = 30;
@@ -25,9 +26,19 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = localStorage.getItem("name")!;
-    this.questionService.getAllQuestions();
+    this.getAllQuestions();
     this.startCounter();
   }
+
+  getAllQuestions() {
+    this.questionService.getAllQuestions()
+      .subscribe((backendQuestions: any[]) => {
+        const questions: QuestionFront[] = backendQuestions.map(convertQuestionFromBackendFormat);
+        this.questionList = questions;
+        console.log(this.questionList);
+    });
+  }
+
   
   nextQuestion() {
     this.currentQuestion++;
@@ -68,7 +79,7 @@ export class QuestionComponent implements OnInit {
         this.counter--;
         if (this.counter === 0) {
           this.currentQuestion++;
-          this.counter = 60;
+          this.counter = 30;
           this.points -= 10;
         }
       });
@@ -99,4 +110,15 @@ export class QuestionComponent implements OnInit {
     return this.progress;
 
   }
+}
+
+function convertQuestionFromBackendFormat(backendQuestion: any): QuestionFront {
+  return {
+    id: backendQuestion.id,
+    questionTitle: backendQuestion.questionTitle,
+    options: [backendQuestion.option1, backendQuestion.option2, backendQuestion.option3, backendQuestion.option4],
+    rightAnswer: backendQuestion.rightAnswer,
+    difficultyLevel: backendQuestion.difficultyLevel,
+    category: backendQuestion.category,
+  };
 }

@@ -1,4 +1,4 @@
-export interface Question {
+export interface QuestionBack {
     id: number;
     questionTitle: string;
     option1: string;
