@@ -9,6 +9,9 @@ import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangeBgDirective } from './change-bg.directive';
 import { QuestionService } from './service/question.service';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { FormsModule } from '@angular/forms';
+import { UpdateQuestionComponent } from './update-question/update-question.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,14 @@ import { QuestionService } from './service/question.service';
     QuestionComponent,
     HeaderComponent,
     ChangeBgDirective,
+    AddQuestionComponent,
+    UpdateQuestionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [QuestionService],
   bootstrap: [AppComponent]

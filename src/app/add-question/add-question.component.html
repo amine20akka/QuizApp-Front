@@ -1,0 +1,53 @@
+<div class="container bg-light py-5">
+    <h1 class="dispaly-5 fw-bold" style="text-align: center;">Add a question :</h1>
+    <form>
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="inputCategory" style="margin-top: 30px;">Category</label>
+                <select [(ngModel)]="questionAdded.category" [ngModelOptions]="{standalone: true}" id="inputCategory" class="form-control" style="margin-bottom: 20px;">
+                    <option selected>Java</option>
+                    <option>Python</option>
+                    <option>C++</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputDifficultyLevel" style="margin-top: 30px;">Difficulty Level</label>
+                <select [(ngModel)]="questionAdded.difficultyLevel" [ngModelOptions]="{standalone: true}" id="inputDifficultyLevel" class="form-control" style="margin-bottom: 20px;">
+                    <option selected>Easy</option>
+                    <option>Intermediate</option>
+                    <option>Advanced</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+                <label for="inputQuestionTitle">Question Title</label>
+                <input [(ngModel)]="questionAdded.questionTitle" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputQuestionTitle" placeholder="Type here title of your question" style="margin-bottom: 20px;">
+        </div>
+        <div class="row">
+            <div class="form-group col-md-5">
+                <label for="inputOption1">1st Option</label>
+                <input [(ngModel)]="questionAdded.option1" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputOption1" placeholder="Type here option 1" style="margin-bottom: 10px;">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputOption2">2nd Option</label>
+                <input [(ngModel)]="questionAdded.option2" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputOption2" placeholder="Type here option 2" style="margin-bottom: 10px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-5">
+                <label for="inputOption3">3rd Option</label>
+                <input [(ngModel)]="questionAdded.option3" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputOption3" placeholder="Type here option 3" style="margin-bottom: 20px;">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputOption4">4th Option</label>
+                <input [(ngModel)]="questionAdded.option4" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputOption4" placeholder="Type here option 4" style="margin-bottom: 20px;">
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="inputRightAnswer">Right Answer</label>
+            <input [(ngModel)]="questionAdded.rightAnswer" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputRightAnswer" placeholder="Type here the right answer">
+            <small id="rightAnswerHelp" class="text-muted" style="margin-bottom: 20px;">Must be one of the options below</small>
+        </div>
+        <button type="submit" (click)="addQuestion()" class="btn btn-primary" style="margin-top: 30px;">Add</button>
+    </form>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs/internal/observable/interval';
 import { QuestionService } from '../service/question.service';
 import { QuestionFront } from '../QuestionFront';
+import { QuestionBack } from '../QuestionBack';
 
 @Component({
   selector: 'app-question',
@@ -111,9 +112,8 @@ export class QuestionComponent implements OnInit {
   }
 }
 
-function convertQuestionFromBackendFormat(backendQuestion: any): QuestionFront {
+function convertQuestionFromBackendFormat(backendQuestion: QuestionBack): QuestionFront {
   return {
-    id: backendQuestion.id,
     questionTitle: backendQuestion.questionTitle,
     options: [backendQuestion.option1, backendQuestion.option2, backendQuestion.option3, backendQuestion.option4],
     rightAnswer: backendQuestion.rightAnswer,
