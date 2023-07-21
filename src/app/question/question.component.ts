@@ -16,6 +16,7 @@ export class QuestionComponent implements OnInit {
   public questionList: QuestionFront[] = [];
   public currentQuestion: number = 0;
   public points: number = 0;
+  public score: number = 0;
   counter = 30;
   correctAnswer: number = 0;
   inCorrectAnswer: number = 0;
@@ -51,6 +52,7 @@ export class QuestionComponent implements OnInit {
     if (currentQno === this.questionList.length) {
       this.isQuizCompleted = true;
       this.stopCounter();
+      this.score = this.points;
     }
     if (option==this.questionList[this.currentQuestion].rightAnswer) {
       this.points += 10;

@@ -45,7 +45,7 @@
                     <i class="fa text-primary fa-arrow-circle-left fa-3x" aria-hidden="true"></i>
                 </button>
                 <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button>
-                <button [disabled]="currentQuestion===questionList.length" class="btn" (click)="nextQuestion()">
+                <button [disabled]="currentQuestion+1===questionList.length" class="btn" (click)="nextQuestion()">
                     <i class="fa text-primary fa-arrow-circle-right fa-3x" aria-hidden="true"></i>
                 </button>
             </div>
@@ -60,7 +60,7 @@
                     <p>Total Question Attempted : {{questionList.length}} </p>
                     <p>Total Correct Answered : {{correctAnswer}} </p>
                     <p>Total Wrong Answered : {{inCorrectAnswer}} </p>
-                    <p>Your Score : {{points}} Points </p>
+                    <p>Your Score : {{score}} Points </p>
                 </div>
             </div>
         </ng-container>
