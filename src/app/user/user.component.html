@@ -1,0 +1,21 @@
+<div class="container bg-light py-5" style="max-width: 400px;">
+    <form>
+        <div class="form-group">
+            <label for="InputEmail">Email address</label>
+            <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"
+                placeholder="Enter email" style="margin-bottom: 10px;">
+        </div>
+        <div class="form-group">
+            <label for="InputPassword">Password</label>
+            <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" id="InputPassword" placeholder="Password" style="margin-bottom: 10px">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="Remember-me" style="margin-bottom: 10px;">
+            <label class="form-check-label" for="Remember-me" style="margin-bottom: 10px;">Remember me</label>
+        </div>
+        <button type="button" (click)="fetchUser()" class="btn btn-primary">
+            <span *ngIf="isLoading">Submit</span>
+            <span *ngIf="!isLoading" [routerLink]="['/welcome']">Login</span>
+        </button>    
+    </form>
+</div>

@@ -12,6 +12,8 @@ import { QuestionService } from './service/question.service';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
+import { UserComponent } from './user/user.component';
+import { UserHeaderComponent } from './header/user-header.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
     ChangeBgDirective,
     AddQuestionComponent,
     UpdateQuestionComponent,
+    UserComponent,
+    UserHeaderComponent,
   ],
   imports: [
     BrowserModule,
