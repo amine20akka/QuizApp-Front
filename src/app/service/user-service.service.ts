@@ -13,8 +13,8 @@ export class UserServiceService {
 
   constructor(private http: HttpClient) { }
 
-  public getUser(email: String, password: String): Observable<User> {
-    return this.http.get<User>(`${this.apiServerUrl}/user/get/${email}/${password}`);
+  public getUser(username: String, password: String): Observable<User> {
+    return this.http.get<User>(`${this.apiServerUrl}/user/get/${username}/${password}`);
   }
 
 }

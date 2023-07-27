@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserComponent } from '../user/user.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-header',
@@ -7,5 +7,7 @@ import { UserComponent } from '../user/user.component';
   styleUrls: ['./user-header.component.css']
 })
 export class UserHeaderComponent {
+  
+  constructor(public router: Router) {}
 
 }

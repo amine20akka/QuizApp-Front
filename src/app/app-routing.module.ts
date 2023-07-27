@@ -6,6 +6,7 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
 import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './header/header.component';
+import { IncorrectComponent } from './incorrect/incorrect.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: "question", component: QuestionComponent },
     { path: "add", component: AddQuestionComponent },
     { path: "update", component: UpdateQuestionComponent },
-    { path: "user", component: UserComponent }
+    { path: "user", component: UserComponent },
+    { path: "incorrect", component: IncorrectComponent }
 ];
 
 @NgModule({

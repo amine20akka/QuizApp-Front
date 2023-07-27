@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
 import { UserComponent } from './user/user.component';
 import { UserHeaderComponent } from './header/user-header.component';
+import { IncorrectComponent } from './incorrect/incorrect.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UserHeaderComponent } from './header/user-header.component';
     UpdateQuestionComponent,
     UserComponent,
     UserHeaderComponent,
+    IncorrectComponent,
   ],
   imports: [
     BrowserModule,
