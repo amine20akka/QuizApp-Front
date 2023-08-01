@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogOutComponent } from '../log-out/log-out.component';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) { }
+  constructor(private logout: LogOutComponent, private router: Router) { }
 
   goToQuizPage() {
     this.router.navigate(['/welcome']);
+  }
+
+  LogOut() {
+    this.router.navigate(['/user']);
+    this.logout.LogOut();
   }
 
 }

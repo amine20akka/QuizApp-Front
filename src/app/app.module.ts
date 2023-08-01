@@ -15,6 +15,9 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
 import { UserComponent } from './user/user.component';
 import { UserHeaderComponent } from './header/user-header.component';
 import { IncorrectComponent } from './incorrect/incorrect.component';
+import { DeleteQuestionComponent } from './delete-question/delete-question.component';
+import { LogOutComponent } from './log-out/log-out.component';
+import { HighscoresComponent } from './highscores/highscores.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { IncorrectComponent } from './incorrect/incorrect.component';
     UserComponent,
     UserHeaderComponent,
     IncorrectComponent,
+    DeleteQuestionComponent,
+    LogOutComponent,
+    HighscoresComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,7 @@ import { IncorrectComponent } from './incorrect/incorrect.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [QuestionService],
+  providers: [QuestionService,LogOutComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

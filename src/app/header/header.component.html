@@ -11,11 +11,11 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" routerLink="/add">Add</a></li>
                     <li><a class="dropdown-item" routerLink="/update">Update</a></li>
-                    <li><a class="dropdown-item" routerLink="">Delete</a></li>
+                    <li><a class="dropdown-item" routerLink="/delete">Delete</a></li>
                 </ul>
             </div>
-            <button class="btn btn-outline-success" type="button" routerLink="">Highscores</button>
-            <button class="btn btn-outline-dark" type="button" routerLink="/user">Logout</button>
+            <button class="btn btn-outline-success" type="button" routerLink="/highscores">Highscores</button>
+            <button class="btn btn-outline-dark" type="button" (click)="LogOut()">Logout</button>
         </form>
     </div>
 </nav>

@@ -1,4 +1,4 @@
-<div class="container bg-light py-5" style="max-width: 400px;">
+<div (keyup)="handleKeyPress($event)" class="container bg-light py-5" style="max-width: 400px;">
     <form>
         <div class="form-group">
             <label for="InputUsername">Username</label>
@@ -12,7 +12,7 @@
             <input type="checkbox" class="form-check-input" id="Remember-me" style="margin-bottom: 10px;">
             <label class="form-check-label" for="Remember-me" style="margin-bottom: 10px;">Remember me</label>
         </div>
-        <button type="button" class="btn btn-primary" (click)="fetchUser()">
+        <button #LoginButton type="button" class="btn btn-primary" (click)="fetchUser()">
             Login
         </button>
     </form>

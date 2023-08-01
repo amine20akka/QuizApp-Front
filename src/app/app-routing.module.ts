@@ -7,17 +7,25 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
 import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './header/header.component';
 import { IncorrectComponent } from './incorrect/incorrect.component';
+import { AuthGuard } from './service/auth-guard.service';
+import { DeleteQuestionComponent } from './delete-question/delete-question.component';
+import { LogOutComponent } from './log-out/log-out.component';
+import { AdminGuard } from './admin-guard.service';
+import { HighscoresComponent } from './highscores/highscores.component';
 
 
 const routes: Routes = [
     { path: '', redirectTo: 'user', pathMatch: "full" },
     { path: "header", component: HeaderComponent },
-    { path: "welcome", component: WelcomeComponent },
-    { path: "question", component: QuestionComponent },
-    { path: "add", component: AddQuestionComponent },
-    { path: "update", component: UpdateQuestionComponent },
+    { path: "welcome", component: WelcomeComponent, canActivate: [AuthGuard] },
+    { path: "question", component: QuestionComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: "add", component: AddQuestionComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: "update", component: UpdateQuestionComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: "delete", component: DeleteQuestionComponent, canActivate: [AuthGuard, AdminGuard] },
     { path: "user", component: UserComponent },
-    { path: "incorrect", component: IncorrectComponent }
+    { path: "logout", component: LogOutComponent, canActivate: [AuthGuard] },
+    { path: "highscores", component: HighscoresComponent, canActivate: [AuthGuard] },
+    { path: "incorrect", component: IncorrectComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

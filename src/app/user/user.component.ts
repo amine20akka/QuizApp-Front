@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UserServiceService } from '../service/user-service.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
@@ -14,8 +14,9 @@ export class UserComponent {
 
   constructor(private userService: UserServiceService, private router: Router) { }
   
+  @ViewChild('LoginButton') LoginButton!: ElementRef;
 
-  isLoading = true;
+  isAuthenticated = false;
   username!: String;
   password!: String;
 
@@ -24,15 +25,25 @@ export class UserComponent {
       (user: User) => {
         console.log(user);
         this.user = user; 
-        this.isLoading = false;
+        this.isAuthenticated = true;
+        const accessToken = this.user.token;
+        localStorage.setItem('accessToken', accessToken.toString());
+        const userRole = this.user.roles;
+        localStorage.setItem('role', userRole.toString());
       });
     setTimeout (() => {
-      if (this.isLoading) {
+      if (this.isAuthenticated==false) {
         this.router.navigate(['/incorrect']);
       } else {
         this.router.navigate(['/welcome']);
       }
-    }, 100);
+    }, 200);
+  }
+
+  handleKeyPress(event: KeyboardEvent): void {
+    if (event.keyCode === 13) {
+      this.LoginButton.nativeElement.click();
+    }
   }
 
 }
