@@ -20,7 +20,7 @@ export class UserComponent {
   password!: String;
 
   fetchUser() {
-    this.userService.getUser(this.username, this.password).subscribe(
+    this.userService.authenticate(this.username, this.password).subscribe(
       (user: User) => {
         console.log(user);
         this.user = user; 

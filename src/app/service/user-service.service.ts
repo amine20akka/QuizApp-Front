@@ -13,8 +13,9 @@ export class UserServiceService {
 
   constructor(private http: HttpClient) { }
 
-  public getUser(username: String, password: String): Observable<User> {
-    return this.http.get<User>(`${this.apiServerUrl}/user/get/${username}/${password}`);
+  public authenticate(username: String, password: String): Observable<User> {
+    const credentials = { username: username, password: password };
+    return this.http.post<User>(`${this.apiServerUrl}/user/authenticate`, credentials);
   }
 
 }

@@ -15,6 +15,7 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
 import { UserComponent } from './user/user.component';
 import { UserHeaderComponent } from './header/user-header.component';
 import { IncorrectComponent } from './incorrect/incorrect.component';
+import { AuthGuardComponent } from './auth-guard/auth-guard.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { IncorrectComponent } from './incorrect/incorrect.component';
     UserComponent,
     UserHeaderComponent,
     IncorrectComponent,
+    AuthGuardComponent,
   ],
   imports: [
     BrowserModule,
