@@ -33,7 +33,7 @@ export class QuestionComponent implements OnInit {
 
   getAllQuestions() {
     this.questionService.getAllQuestions()
-      .subscribe((backendQuestions: any[]) => {
+      .subscribe((backendQuestions: QuestionBack[]) => {
         const questions: QuestionFront[] = backendQuestions.map(convertQuestionFromBackendFormat);
         this.questionList = questions;
         console.log(this.questionList);

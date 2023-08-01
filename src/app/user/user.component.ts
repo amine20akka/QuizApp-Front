@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UserServiceService } from '../service/user-service.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
+import { tap, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -20,24 +21,29 @@ export class UserComponent {
   username!: String;
   password!: String;
 
-  fetchUser() {
-    this.userService.authenticate(this.username, this.password).subscribe(
-      (user: User) => {
+  fetchUser(): void {
+    this.userService.authenticate(this.username, this.password).pipe(
+      tap((user: User) => {
         console.log(user);
-        this.user = user; 
+        this.user = user;
         this.isAuthenticated = true;
         const accessToken = this.user.token;
         localStorage.setItem('accessToken', accessToken.toString());
         const userRole = this.user.roles;
         localStorage.setItem('role', userRole.toString());
-      });
-    setTimeout (() => {
-      if (this.isAuthenticated==false) {
-        this.router.navigate(['/incorrect']);
-      } else {
+      }),
+      catchError((error) => {
+        this.isAuthenticated = false;
+        return of(null);
+      })
+    ).subscribe(
+      () => {
         this.router.navigate(['/welcome']);
+      },
+      () => {
+        this.router.navigate(['/incorrect']);
       }
-    }, 200);
+    );
   }
 
   handleKeyPress(event: KeyboardEvent): void {

@@ -10,5 +10,6 @@ export class LogOutComponent {
   LogOut() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('role');
+    localStorage.removeItem('name');
   }
 }

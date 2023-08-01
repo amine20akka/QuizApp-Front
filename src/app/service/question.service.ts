@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { QuestionBack } from "../QuestionBack";
 
@@ -13,19 +13,35 @@ export class QuestionService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllQuestions(): Observable<QuestionBack[]> {
-    return this.http.get<QuestionBack[]>(`${this.apiServerUrl}/question/AllQuestions`);
+  getAllQuestions(): Observable<QuestionBack[]> {
+    const authToken = localStorage.getItem('accessToken');
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+
+    return this.http.get<QuestionBack[]>(`${this.apiServerUrl}/question/AllQuestions`, { headers });
   }
 
   public addQuestion(questionAdded: QuestionBack): Observable<any> {
-    return this.http.post<any>(`${this.apiServerUrl}/question/add`, questionAdded);
+    const authToken = localStorage.getItem('accessToken');
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+
+    return this.http.post<any>(`${this.apiServerUrl}/question/add`, questionAdded, { headers });
   }
 
   public updateQuestion(questionId: number, questionUpdated: QuestionBack): Observable<any> {
-    return this.http.put<any>(`${this.apiServerUrl}/question/update/${questionId}`, questionUpdated);
+    const authToken = localStorage.getItem('accessToken');
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+
+    return this.http.put<any>(`${this.apiServerUrl}/question/update/${questionId}`, questionUpdated, { headers });
   }
 
   public deleteQuestion(questionId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/question/delete/${questionId}`);
+    const authToken = localStorage.getItem('accessToken');
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+    
+    return this.http.delete<void>(`${this.apiServerUrl}/question/delete/${questionId}`, { headers });
   }
 }

@@ -10,8 +10,8 @@ import { IncorrectComponent } from './incorrect/incorrect.component';
 import { AuthGuard } from './service/auth-guard.service';
 import { DeleteQuestionComponent } from './delete-question/delete-question.component';
 import { LogOutComponent } from './log-out/log-out.component';
-import { AdminGuard } from './admin-guard.service';
 import { HighscoresComponent } from './highscores/highscores.component';
+import { AdminGuard } from './service/admin-guard.service';
 
 
 const routes: Routes = [
