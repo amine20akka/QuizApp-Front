@@ -40,7 +40,8 @@ export class UserComponent {
       () => {
         this.router.navigate(['/welcome']);
       },
-      () => {
+      (error) => {
+        console.error('Navigation error:', error);
         this.router.navigate(['/incorrect']);
       }
     );

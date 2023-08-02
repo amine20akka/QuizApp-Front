@@ -14,34 +14,19 @@ export class QuestionService {
   constructor(private http: HttpClient) { }
 
   getAllQuestions(): Observable<QuestionBack[]> {
-    const authToken = localStorage.getItem('accessToken');
-
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
-
-    return this.http.get<QuestionBack[]>(`${this.apiServerUrl}/question/AllQuestions`, { headers });
+    return this.http.get<QuestionBack[]>(`${this.apiServerUrl}/question/AllQuestions`);
   }
 
   public addQuestion(questionAdded: QuestionBack): Observable<any> {
-    const authToken = localStorage.getItem('accessToken');
-
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
-
-    return this.http.post<any>(`${this.apiServerUrl}/question/add`, questionAdded, { headers });
+    return this.http.post<any>(`${this.apiServerUrl}/question/add`, questionAdded);
   }
 
   public updateQuestion(questionId: number, questionUpdated: QuestionBack): Observable<any> {
-    const authToken = localStorage.getItem('accessToken');
-
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
-
-    return this.http.put<any>(`${this.apiServerUrl}/question/update/${questionId}`, questionUpdated, { headers });
+    return this.http.put<any>(`${this.apiServerUrl}/question/update/${questionId}`, questionUpdated);
   }
 
   public deleteQuestion(questionId: number): Observable<void> {
-    const authToken = localStorage.getItem('accessToken');
-
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
-    
-    return this.http.delete<void>(`${this.apiServerUrl}/question/delete/${questionId}`, { headers });
+  
+    return this.http.delete<void>(`${this.apiServerUrl}/question/delete/${questionId}`);
   }
 }

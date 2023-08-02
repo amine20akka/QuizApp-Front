@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'user', pathMatch: "full" },
     { path: "header", component: HeaderComponent },
     { path: "welcome", component: WelcomeComponent, canActivate: [AuthGuard] },
-    { path: "question", component: QuestionComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: "question", component: QuestionComponent, canActivate: [AuthGuard] },
     { path: "add", component: AddQuestionComponent, canActivate: [AuthGuard, AdminGuard] },
     { path: "update", component: UpdateQuestionComponent, canActivate: [AuthGuard, AdminGuard] },
     { path: "delete", component: DeleteQuestionComponent, canActivate: [AuthGuard, AdminGuard] },
