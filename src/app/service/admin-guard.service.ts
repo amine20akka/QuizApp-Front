@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminGuard {
-  static canActivateAdmin: any;
 
   constructor(private router: Router) { }
 

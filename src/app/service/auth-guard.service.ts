@@ -6,18 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuard {
-  static canActivateAdmin: any;
 
   constructor(private router: Router) { }
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem('accessToken');
     return !!token;
-  }
-
-  isAdmin(): boolean {
-    const role = localStorage.getItem('role');
-    return role == 'ROLE_ADMIN';
   }
 
   canActivate(
